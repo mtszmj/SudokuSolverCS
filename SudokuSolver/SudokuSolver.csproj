@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Model\Cell.cs" />
     <Compile Include="Model\Region.cs" />
+    <Compile Include="Model\Sudoku.cs" />
     <Compile Include="Model\UndoRedo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

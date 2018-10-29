@@ -14,7 +14,7 @@ namespace SudokuSolver.Model
         /// <summary>
         /// Performed actions as list of tuples with row, column, value and method.
         /// </summary>
-        private List<(byte, byte, byte, byte, string)> _Undo = new List<(byte, byte, byte, byte, string)>();
+        public List<(byte, byte, byte, byte, string)> _Undo = new List<(byte, byte, byte, byte, string)>();
 
         /// <summary>
         /// Actions after 'undo' operation are moved to 'redo' list.

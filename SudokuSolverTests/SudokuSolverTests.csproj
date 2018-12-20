@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="Model\CellTests.cs" />
     <Compile Include="Model\RegionTests.cs" />
+    <Compile Include="Model\SudokuSolverTests.cs" />
+    <Compile Include="Model\SudokuTests.cs" />
     <Compile Include="Model\UndoRedoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

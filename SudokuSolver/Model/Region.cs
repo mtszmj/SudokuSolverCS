@@ -51,7 +51,7 @@ namespace SudokuSolver.Model
         /// Update possible values in all cells that the region contains.
         /// </summary>
         /// <remarks>
-        /// <para>Create a set of possible values in a range <1, number of cells in a region>. Go through all cells and read their
+        /// <para>Create a set of possible values in a range [1, number of cells in a region]. Go through all cells and read their
         /// values.Remove read values from prepared set.Go through each cell and intersect cell's possible values with
         /// the set.</para>
         /// <para>Each cell belongs to 3 regions (row, column, rectangle), so its possible values should be intersected 3 times
@@ -120,7 +120,7 @@ namespace SudokuSolver.Model
                 {
                     return true;
                 }
-                else
+                else if (cell.Value != 0)
                 {
                     set.Add(cell.Value);
                 }

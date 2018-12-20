@@ -46,9 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\DictionaryExtension.cs" />
+    <Compile Include="Helper\ListExtension.cs" />
+    <Compile Include="Helper\SetExtension.cs" />
+    <Compile Include="Model\BruteForce.cs" />
     <Compile Include="Model\Cell.cs" />
+    <Compile Include="Model\Exclusion.cs" />
+    <Compile Include="Model\OnePossibility.cs" />
+    <Compile Include="Model\Pattern.cs" />
     <Compile Include="Model\Region.cs" />
     <Compile Include="Model\Sudoku.cs" />
+    <Compile Include="Model\SudokuFactory.cs" />
+    <Compile Include="Model\SudokuSolver.cs" />
     <Compile Include="Model\UndoRedo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

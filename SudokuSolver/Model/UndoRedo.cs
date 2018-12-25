@@ -19,18 +19,6 @@ namespace SudokuSolver.Model
         public UndoRedo() { }
 
         /// <summary>
-        /// Initialize UndoRedo object by deep coping given copyFrom object.
-        /// </summary>
-        /// <param name="copyFrom">Object to deep copy from.</param>
-        public UndoRedo(UndoRedo copyFrom)
-        {
-            foreach (var item in copyFrom._Undo)
-                _Undo.Add(item);
-            foreach (var item in copyFrom._Redo)
-                _Redo.Add(item);
-        }
-
-        /// <summary>
         /// Performed actions as list of tuples with row, column, old value, value and method.
         /// </summary>
         public List<(byte row, byte column, byte oldValue, byte value, string method)> _Undo = new List<(byte, byte, byte, byte, string)>();

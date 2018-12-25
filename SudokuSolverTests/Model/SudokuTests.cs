@@ -125,59 +125,6 @@ namespace SudokuSolver.Model.Tests
         }
 
         [TestMethod()]
-        public void CopyTest()
-        {
-            // arrange
-            var puzzle = @"100008400
-                            020004900
-                            903256000
-                            600000571
-                            410805062
-                            532000004
-                            000582709
-                            001300040
-                            008100005
-                            ".Replace(" ", "");
-            var sudoku = SudokuFactory.CreateFromString(puzzle);
-
-            // act
-            var sudokuCopy = new Sudoku(sudoku);
-            sudoku.SetCellValue(0, 1, 7, "manual");
-
-            // assert
-            Assert.AreEqual(7, sudoku.GetCellValue(0, 1));
-            Assert.AreEqual(0, sudokuCopy.GetCellValue(0, 1));
-        }
-
-        [TestMethod()]
-        public void CopyTest2()
-        {
-            // arrange
-            var puzzle = @"100008400
-                            020004900
-                            903256000
-                            600000571
-                            410805062
-                            532000004
-                            000582709
-                            001300040
-                            008100005
-                            ".Replace(" ", "");
-            var sudoku = SudokuFactory.CreateFromString(puzzle);
-            var solver = new SudokuSolver(sudoku);
-
-            // act
-            solver.Solve();
-            var sudokuCopy = new Sudoku(sudoku);
-            sudokuCopy.SetCellValue(0, 1, 0, "manual");
-            sudokuCopy.UpdatePossibleValuesInAllRegions();
-
-            // assert
-            Assert.IsTrue(sudoku.IsSolved());
-            Assert.IsFalse(sudokuCopy.IsSolved());
-        }
-
-        [TestMethod()]
         public void SerializationCopyTest()
         {
             // arrange

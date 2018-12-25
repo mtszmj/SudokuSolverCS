@@ -68,28 +68,6 @@ namespace SudokuSolver.Model
         }
 
         /// <summary>
-        /// Initialize Sudoku object by deep coping given copyFrom object.
-        /// </summary>
-        /// <param name="copyFrom">Object to deep copy from.</param>
-        public Sudoku(Sudoku copyFrom)
-        {
-            _RectangleWidth = copyFrom._RectangleWidth;
-            _RectangleHeight = copyFrom._RectangleHeight;
-            _UndoRedo = new UndoRedo(copyFrom._UndoRedo);
-            Size = copyFrom.Size;
-
-            Cells = new Cell[Size, Size];
-            for (var row = 0; row < Size; row++)
-                for (var column = 0; column < Size; column++)
-                    Cells[row, column] = new Cell(copyFrom.Cells[row, column]);
-
-            Regions = new Region[copyFrom.Regions.Length];
-            for (var i = 0; i < copyFrom.Regions.Length; i++) { Regions[i] = new Region(); }
-
-            PopulateRegions();
-        }
-
-        /// <summary>
         /// Size of the Sudoku.
         /// </summary>
         public byte Size { get; }

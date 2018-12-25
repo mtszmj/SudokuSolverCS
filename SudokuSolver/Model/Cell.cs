@@ -58,16 +58,6 @@ namespace SudokuSolver.Model
             }
         }
 
-        public Cell(Cell copyFrom)
-        {
-            _Value = copyFrom._Value;
-            Row = copyFrom.Row;
-            Column = copyFrom.Column;
-            Editable = copyFrom.Editable;
-            foreach (var value in copyFrom.PossibleValues)
-                PossibleValues.Add(value);
-        }
-
         /// <summary>
         /// Row parameter of a cell.
         /// </summary>

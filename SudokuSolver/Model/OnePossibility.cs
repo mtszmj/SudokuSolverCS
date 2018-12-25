@@ -11,6 +11,11 @@ namespace SudokuSolver.Model
     public class OnePossibility : Pattern
     {
         /// <summary>
+        /// Priority for a pattern. The pattern with the lowest priority value is the first to be used for solving.
+        /// </summary>
+        protected override int Priority => 100;
+
+        /// <summary>
         /// Solve sudoku with OnePossibility pattern.
         /// 
         /// The pattern goes through all the cells in sudoku and checks if there is only one possible value to write. If it

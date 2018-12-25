@@ -18,6 +18,11 @@ namespace SudokuSolver.Model
         private SudokuNode _Root;
 
         /// <summary>
+        /// Priority for a pattern. The pattern with the lowest priority value is the first to be used for solving.
+        /// </summary>
+        protected override int Priority => 9999;
+
+        /// <summary>
         /// Solve sudoku by Brute Force (recursively).
         /// 
         /// Algorithm:

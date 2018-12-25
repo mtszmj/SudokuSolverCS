@@ -16,6 +16,11 @@ namespace SudokuSolver.Model
     public class Exclusion : Pattern
     {
         /// <summary>
+        /// Priority for a pattern. The pattern with the lowest priority value is the first to be used for solving.
+        /// </summary>
+        protected override int Priority => 200;
+
+        /// <summary>
         /// Solve sudoku with Exclusion pattern.
         /// 
         /// The pattern checks cells in Region of sudoku.If there is a cell that has multiple possibilities but one of them

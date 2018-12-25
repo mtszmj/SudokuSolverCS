@@ -14,6 +14,11 @@ namespace SudokuSolver.Model
         public string Name => GetType().Name;
 
         /// <summary>
+        /// Priority for a pattern. The pattern with the lowest priority value is the first to be used for solving.
+        /// </summary>
+        protected abstract int Priority { get; }
+
+        /// <summary>
         /// Solve sudoku with a implemented pattern and return True if any Cell was changed. If not, return false.
         /// </summary>
         /// <param name="sudoku">Sudoku object to which apply solution algorithm.</param>
@@ -28,7 +33,19 @@ namespace SudokuSolver.Model
         /// <returns>A list of Pattern objects.</returns>
         public static IEnumerable<Pattern> GetPatternsWithoutBruteForce()
         {
-            return new List<Pattern>() { new OnePossibility(), new Exclusion() };
+            var list = new List<Pattern>();
+            foreach (var type in typeof(Pattern).Assembly.GetTypes())
+            {
+                if(typeof(Pattern).IsAssignableFrom(type) // derives from Pattern
+                    && type != typeof(Pattern)            // but it is neither Pattern
+                    && type != typeof(BruteForce))        // nor BruteForce
+                {
+                    list.Add((Pattern)Activator.CreateInstance(type));
+                }
+            }
+            list.Sort((x, y) => x.Priority.CompareTo(y.Priority));
+
+            return list;
         }
 
         /// <summary>
@@ -37,7 +54,10 @@ namespace SudokuSolver.Model
         /// <returns>A list of Pattern objects.</returns>
         public static IEnumerable<Pattern> GetPatternsWithBruteForce()
         {
-            return new List<Pattern>() { new OnePossibility(), new Exclusion(), new BruteForce() };
+            var list = new List<Pattern>(GetPatternsWithoutBruteForce());
+            list.Add((Pattern)Activator.CreateInstance(typeof(BruteForce)));
+
+            return list;
         }
     }
 }

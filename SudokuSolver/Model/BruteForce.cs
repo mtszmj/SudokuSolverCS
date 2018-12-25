@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SudokuSolver.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -84,9 +85,8 @@ namespace SudokuSolver.Model
             /// <param name="value">Value to write to a cell. Defaults to null.</param>
             public SudokuNode(Sudoku sudoku, byte? row = null, byte? column = null, byte? value = null)
             {
-                //TODO Check!!!
-                Sudoku = new Sudoku(sudoku);
-                //Sudoku.CopyFrom(sudoku);
+                //Sudoku = new Sudoku(sudoku);
+                Sudoku = sudoku.DeepCopy(); // changed from usage of copying constructors to 'Prototype' via serialization.
                 if(row != null && column != null && value > 0)
                 {
                     Sudoku.SetCellValue(row.GetValueOrDefault(), column.GetValueOrDefault(), value.GetValueOrDefault(), METHOD);

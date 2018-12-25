@@ -10,6 +10,7 @@ namespace SudokuSolver.Model
     /// <summary>
     /// Class storing actions of setting values to Sudoku's cells in order to perform 'undo' and 'redo' actions.
     /// </summary>
+    [Serializable]
     public class UndoRedo
     {
         /// <summary>
@@ -32,12 +33,12 @@ namespace SudokuSolver.Model
         /// <summary>
         /// Performed actions as list of tuples with row, column, old value, value and method.
         /// </summary>
-        public List<(byte, byte, byte, byte, string)> _Undo = new List<(byte, byte, byte, byte, string)>();
+        public List<(byte row, byte column, byte oldValue, byte value, string method)> _Undo = new List<(byte, byte, byte, byte, string)>();
 
         /// <summary>
         /// Actions after 'undo' operation are moved to 'redo' list.
         /// </summary>
-        public List<(byte, byte, byte, byte, string)> _Redo = new List<(byte, byte, byte, byte, string)>();
+        public List<(byte row, byte column, byte oldValue, byte value, string method)> _Redo = new List<(byte, byte, byte, byte, string)>();
 
         /// <summary>
         /// Store data of action performed on a cell. When new data is inserted, 'Redo' list is cleared.
@@ -78,7 +79,7 @@ namespace SudokuSolver.Model
         /// because it clears redo list.
         /// </summary>
         /// <returns>Tuple: row, column, oldValue, value, method, lengthOfUndoList, lengthOfRedoList.</returns>
-        public (byte, byte, byte, byte, string, int, int) Undo()
+        public (byte row, byte column, byte oldValue, byte value, string method, int lengthOfUndoList, int lengthOfRedoList) Undo()
         {
             var (row, column, oldValue, value, method) = _Undo.Pop();
             _Redo.Add((row, column, oldValue, value, method));
@@ -91,7 +92,7 @@ namespace SudokuSolver.Model
         /// actions in a row).
         /// </summary>
         /// <returns>Tuple: row, column, oldValue, value, method, lengthOfUndoList, lengthOfRedoList.</returns>
-        public (byte, byte, byte, byte, string, int, int) Redo()
+        public (byte row, byte column, byte oldValue, byte value, string method, int lengthOfUndoList, int lengthOfRedoList) Redo()
         {
             var (row, column, oldValue, value, method) = _Redo.Pop();
             _Undo.Add((row, column, oldValue, value, method));

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\DictionaryExtension.cs" />
+    <Compile Include="Helper\Extension.cs" />
     <Compile Include="Helper\ListExtension.cs" />
     <Compile Include="Helper\SetExtension.cs" />
     <Compile Include="Model\BruteForce.cs" />

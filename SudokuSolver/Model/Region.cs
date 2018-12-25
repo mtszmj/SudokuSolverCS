@@ -12,6 +12,7 @@ namespace SudokuSolver.Model
     /// - column,
     /// - rectangle.
     /// </summary>
+    [Serializable]
     public class Region
     {
         /// <summary>

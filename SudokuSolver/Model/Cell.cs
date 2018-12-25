@@ -6,6 +6,7 @@ namespace SudokuSolver.Model
     /// <summary>
     /// Basic class to store data of one cell.
     /// </summary>
+    [Serializable]
     public class Cell
     {
         /// <summary>

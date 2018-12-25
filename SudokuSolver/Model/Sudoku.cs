@@ -7,6 +7,7 @@ namespace SudokuSolver.Model
     /// <summary>
     /// Class that contains Sudoku board - two dimensional array of cells.
     /// </summary>
+    [Serializable]
     public class Sudoku
     {
         /// <summary>

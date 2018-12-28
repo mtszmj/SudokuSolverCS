@@ -159,7 +159,7 @@ namespace SudokuSolver.Model
         {
             if (!IsRowAndColumnInRange(row, column))
             {
-                var msg = "Incorrect row or column: {row},{column}, max: {self._size - 1}";
+                var msg = $"Incorrect row or column: {row},{column}, max: {Size - 1}";
                 throw new ArgumentException(msg);
             }
             else if (value < 0 || value > Size)

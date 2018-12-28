@@ -3,8 +3,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SudokuSolver.Helper
 {
-    public static class Extension
+    public static class DeepCopyExtension
     {
+        /// <summary>
+        /// Make a deep copy of self.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="self"></param>
+        /// <returns>New object - deep copy of self.</returns>
         public static T DeepCopy<T>(this T self)
         {
             using (var stream = new MemoryStream())
